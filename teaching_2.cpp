@@ -15,6 +15,7 @@ private:
 public:
 
     Claw(std::string name);
+    ~Claw();
 
     inline void setState(ClawState newState) { m_ClawState = newState; };
     inline ClawState getState() { return m_ClawState; };
@@ -30,6 +31,12 @@ public:
 
 Claw::Claw(std::string name) : m_Name(name), m_ClawState(ClawState::INIT) { }
 
+Claw::~Claw() {
+
+    std::cout << "Goodbye.\n";
+
+}
+
 void Claw::runStateMachine() {
     switch (m_ClawState) {
     case ClawState::OPEN:
@@ -43,6 +50,9 @@ void Claw::runStateMachine() {
         break;
     case ClawState::INIT:
         init();
+        break;
+    default:
+        std::cout << "what?\n";
         break;
     }
 }
@@ -81,10 +91,15 @@ int main() {
         std::cout << "Pick a state: ";
         std::cin >> input_intermediate;
 
+//        if (joy->GetRawButton(BUTTON_OPEN_CLAW)) { claw->setState(ClawState::OPEN)}
+
+
         claw->setState(static_cast<ClawState>(input_intermediate));
         claw->runStateMachine();
 
     }
 
     std::cout << "Claw Simulation Complete\n";
+
+    delete claw;
 }

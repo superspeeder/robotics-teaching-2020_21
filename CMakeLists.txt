@@ -11,3 +11,6 @@ add_executable(RoboticsCXX_Lesson1 src/lesson_1.cpp)
 add_executable(RoboticsCXX_Lesson2 src/lesson_2.cpp)
 add_executable(RoboticsCXX_Lesson3 src/lesson_3.cpp)
 add_executable(RoboticsCXX_Lesson4 src/lesson_4.cpp)
+
+add_executable(RoboticsCXX_Lesson_Project src/project_main.cpp)
+target_include_directories(RoboticsCXX_Lesson_Project PRIVATE include/)
