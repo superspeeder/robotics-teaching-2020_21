@@ -1,16 +1,11 @@
+cmake_minimum_required(VERSION 3.18)
 project(RoboticsCXX LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(RoboticsCXX_Teaching0 teaching_0.cpp)
-add_executable(RoboticsCXX_Teaching1 teaching_1.cpp)
-add_executable(RoboticsCXX_Teaching2 teaching_2.cpp)
+add_executable(Main src/Main.cpp)
 
-add_executable(RoboticsCXX_Lesson1 src/lesson_1.cpp)
-add_executable(RoboticsCXX_Lesson2 src/lesson_2.cpp)
-add_executable(RoboticsCXX_Lesson3 src/lesson_3.cpp)
-add_executable(RoboticsCXX_Lesson4 src/lesson_4.cpp)
+target_include_directories(Main PRIVATE ${CMAKE_SOURCE_DIR}/include/)
 
-add_executable(RoboticsCXX_Lesson_Project src/project_main.cpp)
-target_include_directories(RoboticsCXX_Lesson_Project PRIVATE include/)
+add_custom_target(Run COMMAND Main)

@@ -95,7 +95,7 @@ int main() {
             input.estop = true;
         }
 
-        if (input.reset_button && intake->getState() == IntakeState::INIT) {
+        if (input.reset_button && intake->getState() == IntakeState::INIT   ) {
             input.reset_button = false;
         }
 
