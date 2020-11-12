@@ -48,9 +48,18 @@ int main() {
 
     println(new char[4] {'h','e','l','p'}, 4);
 
-    Robot* robot = new Robot(0, 10);
+    Robot *robot = new Robot(0, 10);
 
     robot->printDebugInfo();
+
+    int a = 29;
+
+    int* a_addr = &a;
+
+    int b = *a_addr;
+
+    println_macro(a << " " << a_addr << " " << b);
+    // std::cout << a << " " << a_addr << " " << b;
 
     delete robot;
 
